@@ -3,9 +3,10 @@ import java.io.*;
 
 public class Part2 {
     public static void main(String[] args) {
+        InputReader reader = null;
         try {
             FileInputStream inputStream = new FileInputStream("input.txt");
-            InputReader reader = new InputReader(inputStream);
+            reader = new InputReader(inputStream);
 
             int count = 0;
             int prevSum = 0;
@@ -30,6 +31,8 @@ public class Part2 {
             System.out.println(count);
         } catch(IOException e) {
             e.printStackTrace();
+        } finally {
+            if(reader != null) reader.close();
         }
     }
 }

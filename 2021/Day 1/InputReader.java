@@ -30,4 +30,12 @@ public class InputReader {
         if(num == null) return null;
         else return Integer.decode(num); 
     }
+
+    void close() {
+        try {
+            reader.close();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
     }
+}
