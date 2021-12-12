@@ -14,8 +14,6 @@ public class Part2 {
 
             SevenSegDisplay disp = new SevenSegDisplay(inputValues);
             int num = disp.getNumberFromSignals(outputValues);
-            // System.out.println(x);
-
             sum += num;
         }
 
