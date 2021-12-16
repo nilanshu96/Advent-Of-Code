@@ -11,9 +11,9 @@ public class Part2 {
         int[][] matrix = Util.getMatrixFromPoints(points, largestPoint);
         
         for(int i=0; i<foldLines.size(); i++) {
-            matrix = foldOrigami(matrix, foldLines.get(i));
-            
+            matrix = foldOrigami(matrix, foldLines.get(i));    
         }
+        
         Util.printOrigamiMatrix(matrix);
     }
 
