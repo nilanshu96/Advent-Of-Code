@@ -98,10 +98,10 @@ public class Util {
 
             if(node.parent.left == node) {
                 node.parent.left = null;
-                node.parent.first = 0;
+                node.parent.first = 0; // Current PairNode explodes to 0 by removing its parent's connection from it and replacing parent's left value (first) to 0
             } else {
                 node.parent.right = null;
-                node.parent.second = 0;
+                node.parent.second = 0; // Current PairNode explodes to 0 by removing its parent's connection from it and replacing parent's right value (second) to 0
             }
 
             result = true;
