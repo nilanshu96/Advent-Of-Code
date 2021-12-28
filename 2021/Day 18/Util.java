@@ -39,9 +39,9 @@ public class Util {
 
                 currentNode = pairStack.peek();
 
-                if(currentNode.first == -1 && currentNode.left == null) {
+                if(currentNode.first == PairNode.UNASSIGNED && currentNode.left == null) {
                     currentNode.left = childNode;
-                } else if(currentNode.second == -1 && currentNode.right == null){
+                } else if(currentNode.second == PairNode.UNASSIGNED && currentNode.right == null){
                     currentNode.right = childNode;
                 }
             } else if(pairString.substring(i,i+2).matches("\\d+,")) {
@@ -79,7 +79,7 @@ public class Util {
         if(node.isLeaf() && depth >= 4) {
             PairNode predecessor = findPredecessor(node);
             if(predecessor != null) {
-                if(predecessor.second != -1) {
+                if(predecessor.second != PairNode.UNASSIGNED) {
                     predecessor.second += node.first;
                 } else {
                     predecessor.first += node.first;
@@ -89,7 +89,7 @@ public class Util {
             PairNode successor = findSuccessor(node);
 
             if(successor != null) {
-                if(successor.first != -1) {
+                if(successor.first != PairNode.UNASSIGNED) {
                     successor.first += node.second;
                 } else {
                     successor.second += node.second;
@@ -130,7 +130,7 @@ public class Util {
 
         if(predecessor == null) return null;
 
-        if(predecessor.first != -1) return predecessor;
+        if(predecessor.first != PairNode.UNASSIGNED) return predecessor;
 
         predecessor = predecessor.left;
 
@@ -156,7 +156,7 @@ public class Util {
 
         if(successor == null) return null;
 
-        if(successor.second != -1) return successor;
+        if(successor.second != PairNode.UNASSIGNED) return successor;
         successor = successor.right;
 
         while(successor.left != null) {
@@ -187,7 +187,7 @@ public class Util {
             newNode.first = (int)Math.floor((double)node.first/2);
             newNode.second = (int)Math.ceil((double)node.first/2);
 
-            node.first = -1;
+            node.first = PairNode.UNASSIGNED;
             node.left = newNode;
 
             return true;
@@ -198,7 +198,7 @@ public class Util {
             newNode.parent = node;
             newNode.first = (int)Math.floor((double)node.second/2);
             newNode.second = (int)Math.ceil((double)node.second/2);
-            node.second = -1;
+            node.second = PairNode.UNASSIGNED;
             node.right = newNode;
 
             return true;

@@ -3,8 +3,10 @@ class PairNode {
     PairNode left,right;
     PairNode parent;
 
+    static final int UNASSIGNED = -123;
+
     PairNode() {
-        first = second = -1;
+        first = second = UNASSIGNED;
         left = right = null;
         parent = null;
     }
