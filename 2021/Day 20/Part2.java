@@ -2,6 +2,9 @@ import java.util.List;
 
 public class Part2 {
     public static void main(String[] args) {
+        long start,end;
+        start = System.currentTimeMillis();
+
         String filename = "input.txt";
         String algo = Util.readImageEnhancementAlgoString(filename);
         Image image = Util.readImage(filename);
@@ -23,6 +26,9 @@ public class Part2 {
             }
         }
 
+        end = System.currentTimeMillis();
+
         System.out.println("Answer: " + count);
+        System.out.println("Execution time: " + (end-start) + "ms");
     }
 }
