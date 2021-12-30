@@ -54,7 +54,6 @@ public class Image {
 
     public void trimByCharacter(char c) {
         int i=0, count=0;
-        int rowLength = getNumOfRows();
         int colLength = getNumOfCols();
         String str;
 
