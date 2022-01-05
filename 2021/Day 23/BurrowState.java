@@ -95,7 +95,7 @@ public class BurrowState implements Comparable<BurrowState> {
         for(int i=0; i<4; i++) {
             if(!rooms[i].isClean()) {
                 for(Pair<Hallway,Integer> h: hallway.getValidMovesFromPos(posOfRoomInHallway.get(i),rooms[i].peek())) {
-                int newCost = (h.second + rooms[i].getStepsRequiredToEnter()) * costOfAmphipods.get(rooms[i].peek());
+                int newCost = (h.second + rooms[i].getStepsRequiredToExit()) * costOfAmphipods.get(rooms[i].peek());
                 Room[] newRooms = getRooms();
                 newRooms[i].pop();
                 BurrowState newState = Util.encodeHallwayRooms(h.first, newRooms);

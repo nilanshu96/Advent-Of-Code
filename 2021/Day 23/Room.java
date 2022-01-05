@@ -44,6 +44,10 @@ public class Room {
         return getSize() - getOccupiedSize();
     }
 
+    int getStepsRequiredToExit() {
+        return getSize() - getOccupiedSize() + 1; // The 1 extra space is the space right outside the room
+    }
+
     void push(Character letter) {
         room.push(letter);
     }

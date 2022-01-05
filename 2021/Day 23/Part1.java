@@ -24,7 +24,7 @@ public class Part1 {
                 stateToCostMap.put(state, cost);
                 state.setCost(cost);
                 if(!queue.contains(state)) {
-                    queue.offer(state);;
+                    queue.offer(state);
                 }
             }
         }

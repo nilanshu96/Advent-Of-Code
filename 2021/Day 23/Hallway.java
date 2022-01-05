@@ -25,6 +25,9 @@ public class Hallway {
         return hallway;
     }
 
+    //Calculates possible moves where an amphipod can reach its designated room
+    //Only calculates the steps needed for an amphipod to reach right
+    //outside their designated room.
     List<Triplet<Hallway,Character,Integer>> getValidMovesFromCharToRoom() {
         List<Triplet<Hallway,Character,Integer>> validMoves = new ArrayList<>();
         for(int i=0; i<hallway.length(); i++) {
@@ -46,6 +49,8 @@ public class Hallway {
         return validMoves;
     }
 
+    //Calculates the possible places an amphipod can go within the hallway 
+    //from their position 'pos'
     List<Pair<Hallway,Integer>> getValidMovesFromPos(int pos, char amphipod) {
         int i = pos - 1;
         List<Pair<Hallway,Integer>> moves = new ArrayList<>();
@@ -53,7 +58,7 @@ public class Hallway {
             if(!isRoomPos(i)) {
                 StringBuilder sb = new StringBuilder(hallway);
                 sb.setCharAt(i, amphipod);
-                moves.add(new Pair<>(new Hallway(sb.toString()),pos - i + 1));
+                moves.add(new Pair<>(new Hallway(sb.toString()),pos - i));
             }
             i--;
         }
@@ -63,7 +68,7 @@ public class Hallway {
             if(!isRoomPos(i)) {
                 StringBuilder sb = new StringBuilder(hallway);
                 sb.setCharAt(i, amphipod);
-                moves.add(new Pair<>(new Hallway(sb.toString()),i - pos + 1));
+                moves.add(new Pair<>(new Hallway(sb.toString()),i - pos));
             }
             i++;
         }
