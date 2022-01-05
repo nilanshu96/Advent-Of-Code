@@ -20,9 +20,6 @@ public class Part2 {
                 Cuboid intersection = getIntersection(cuboidToProcess, reactorCuboid.second);
                 if(intersection != null) {
                     cuboidsToAddInCore.add(new Pair<>(-reactorCuboid.first, intersection));
-                    if(cuboidsToAddInCore.size() > 91380) {
-                        System.out.println(intersection);
-                    }
                 }
             }
 
