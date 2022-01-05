@@ -1,24 +1,24 @@
 import java.util.*;
 
 public class Room {
-    private ArrayDeque<String> room;
+    private ArrayDeque<Character> room;
     private int roomSize;
-    private String roomOf;
-    static Map<Integer,String> roomPosOf;
+    private char roomOf;
+    static Map<Integer,Character> roomPosOf;
 
     static {
         roomPosOf = new HashMap<>();
-        roomPosOf.put(0,"A");
-        roomPosOf.put(1,"B");
-        roomPosOf.put(2,"C");
-        roomPosOf.put(3,"D");
+        roomPosOf.put(0,'A');
+        roomPosOf.put(1,'B');
+        roomPosOf.put(2,'C');
+        roomPosOf.put(3,'D');
     }
 
     Room(String room, int idx) {
         this.room = new ArrayDeque<>();
         for(int i=room.length()-1; i>=0; i--) {
-            String letter = room.substring(i,i+1);
-            if(!letter.equals(".")) {
+            Character letter = room.charAt(i);
+            if(!letter.equals('.')) {
                 this.room.push(letter);
             }
         }
@@ -44,20 +44,20 @@ public class Room {
         return getSize() - getOccupiedSize();
     }
 
-    void push(String letter) {
+    void push(Character letter) {
         room.push(letter);
     }
 
-    String pop() {
+    Character pop() {
         return room.pop();
     }
 
-    String peek() {
+    Character peek() {
         return room.peek();
     }
 
     boolean isClean() {
-        Iterator<String> iter = room.iterator();
+        Iterator<Character> iter = room.iterator();
         while(iter.hasNext()) {
             if(!iter.next().equals(roomOf)) {
                 return false;
@@ -69,8 +69,12 @@ public class Room {
     @Override
     public String toString() {
         String empty = String.join("",Collections.nCopies(getSize()-getOccupiedSize(),"."));
-        String occupants = String.join("",room);
-        return empty + occupants;
+        StringBuilder occupants = new StringBuilder();
+        Iterator<Character> it = room.iterator();
+        while(it.hasNext()) {
+            occupants.append(it.next());
+        }
+        return empty + occupants.toString();
     }
 
 }
